@@ -1,0 +1,17 @@
+﻿stages:
+- name: Test
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: echo "2. Test Stage"
+- name: Build
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: echo "3. Build Stage"
+- name: Deploy
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: echo "4. Deploy Stage"
+timeout: 60
