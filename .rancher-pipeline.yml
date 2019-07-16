@@ -1,4 +1,4 @@
-﻿stages:
+stages:
 - name: Test
   steps:
   - runScriptConfig:
@@ -8,10 +8,17 @@
   steps:
   - runScriptConfig:
       image: node:latest
-      shellScript: echo "3. Build Stage"
+      shellScript: docker build -t yswwhf/jenkins-demo .
+- name: Push
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: |-
+        docker login -u yswwhf -p asus 0457
+        docker push yswwhf/jenkins-demo
 - name: Deploy
   steps:
   - runScriptConfig:
       image: node:latest
-      shellScript: echo "4. Deploy Stage"
+      shellScript: kubectl apply -f k8s.yaml --record
 timeout: 60
