@@ -14,7 +14,7 @@ stages:
   - runScriptConfig:
       image: node:latest
       shellScript: |-
-        docker login -u yswwhf -p asus 0457
+        docker login -u yswwhf -p asus+0457
         docker push yswwhf/jenkins-demo
 - name: Deploy
   steps:
