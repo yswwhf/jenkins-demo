@@ -6,9 +6,8 @@ stages:
       shellScript: echo "2. Test Stage"
 - name: Build
   steps:
-  - runScriptConfig:
-      image: node:latest
-      shellScript: docker build -t yswwhf/jenkins-demo .
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
 - name: Push
   steps:
   - runScriptConfig:
