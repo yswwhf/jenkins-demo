@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: jenkins-demo
-  namespace: wuhan-test
+  namespace: default
 spec:
   template:
     metadata:
