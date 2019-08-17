@@ -1,0 +1,20 @@
+stages:
+- name: test
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: echo "2. Test Stage"
+- name: build & push
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: yswwhf/jenkins-demo:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: index.docker.io
+- name: deploy
+  steps:
+  - applyYamlConfig:
+      path: ./k8s.yaml
+timeout: 60
+notification: {}
