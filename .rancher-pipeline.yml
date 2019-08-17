@@ -12,6 +12,9 @@ stages:
       tag: yswwhf/jenkins-demo:test
       pushRemote: true
       registry: index.docker.io
+  - runScriptConfig:
+      image: node:latest
+      shellScript: kubectl delete -f k8s.yaml
 - name: deploy
   steps:
   - applyYamlConfig:
