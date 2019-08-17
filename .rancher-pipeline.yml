@@ -9,7 +9,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: yswwhf/jenkins-demo:${CICD_EXECUTION_SEQUENCE}
+      tag: yswwhf/jenkins-demo:test
       pushRemote: true
       registry: index.docker.io
 - name: deploy
