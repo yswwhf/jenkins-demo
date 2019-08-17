@@ -14,11 +14,6 @@ stages:
       registry: index.docker.io
 - name: deploy
   steps:
-  - runScriptConfig:
-      image: node:latest
-      shellScript: |-
-        /usr/local/bin/docker version
-        /usr/local/bin/docker login -u yswwhf -p asus+0457
   - applyYamlConfig:
       path: ./k8s.yaml
 timeout: 60
