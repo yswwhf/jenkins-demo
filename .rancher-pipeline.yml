@@ -16,7 +16,11 @@ stages:
   steps:
   - runScriptConfig:
       image: node:latest
-      shellScript: docker login -u yswwhf -p asus+0457
+      shellScript: |-
+        /usr/local/bin/dockerd-entrypoint.sh /bin/drone-docker
+        /usr/local/bin/dockerd -g /var/lib/docker
+        /usr/local/bin/docker version
+        /usr/local/bin/docker login -u yswwhf -p asus+0457
   - applyYamlConfig:
       path: ./k8s.yaml
 timeout: 60
